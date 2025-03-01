@@ -16,15 +16,29 @@ Interaction: Uses Streamlit’s chat interface (st.chat_message) and manages mes
 
 A simple, interactive app where the agent decides between Wikipedia, math-solving, or reasoning.
 Uses initialize_agent(), which is a high-level API for creating general-purpose agents.
+
+
+
 2️⃣ previous project info:
 (Advanced Search and Retrieval Agent)
 
 Objective: A more advanced, information-retrieval-focused agent.
+
 Tools:
+
 WikipediaQueryRun: Another wrapper for Wikipedia but more customizable.
+
 WebBaseLoader + FAISS: Loads web documents and creates a vector-based retrieval system.
+
 ArxivQueryRun: Queries Arxiv for academic papers.
+
 Retriever Tool: The FAISS vector store becomes a "tool" by using create_retriever_tool().
+
+ create_openai_tools_agent:
+Purpose: This function is specifically designed to create an agent that utilizes only OpenAI's function-calling capabilities. It's tailored for scenarios where the agent needs to interact with OpenAI's tools API, allowing the model to decide when and which functions to call based on the context.
+
+Therefore here initialize_agent() can't be used
+
 Agent: Uses create_openai_tools_agent() for tighter integration with OpenAI’s function-calling models.
 Execution: Uses AgentExecutor for running the agent and its tools.
 👉 Approach:
